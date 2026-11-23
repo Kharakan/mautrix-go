@@ -98,6 +98,9 @@ type BridgeConfig struct {
 	PortalCreateFilter            PortalCreateFilter `yaml:"portal_create_filter"`
 	Permissions                   PermissionConfig   `yaml:"permissions"`
 	Backfill                      BackfillConfig     `yaml:"backfill"`
+
+	// Not part of upstream, see preserve.go.
+	PreserveDeletes PreserveDeletesConfig `yaml:"preserve_deletes"`
 }
 
 type MatrixConfig struct {

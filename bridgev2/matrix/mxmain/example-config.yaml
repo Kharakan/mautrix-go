@@ -105,6 +105,18 @@ bridge:
             shared_no_users: nothing
             shared_has_users: nothing
 
+    # Settings for keeping messages that were deleted on the remote network readable on Matrix.
+    # This is not part of upstream mautrix-go (fork Kharakan/mautrix-go, branch preserve).
+    preserve_deletes:
+        # If enabled, a message that is deleted for everyone on the remote network is not redacted on Matrix.
+        # Its text is replaced with the marker below using an edit, so the original stays
+        # available in the edit history of clients that have one.
+        # Deletions that only apply to the user's own devices are still bridged as redactions.
+        enabled: false
+        # The text that replaces a deleted message. The default is a wastebasket emoji followed by
+        # an invisible word joiner (U+2060), which keeps clients from enlarging the lone emoji.
+        marker: "🗑️\u2060"
+
     # Settings for relay mode
     relay:
         # Whether relay mode should be allowed. If allowed, the set-relay command can be used to turn any
