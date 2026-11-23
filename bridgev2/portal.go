@@ -3923,7 +3923,7 @@ func (portal *Portal) handleRemoteMessageRemove(ctx context.Context, source *Use
 	dontRenderPlaceholder := ok && dontRenderPlaceholderProvider.DontRenderPlaceholder()
 	var res EventHandlingResult
 	if portal.Bridge.Config.PreserveDeletes.Enabled && !onlyForMe {
-		res = portal.preserveMessageParts(ctx, targetParts, intent, getEventTS(evt), dontRenderPlaceholder)
+		res = portal.preserveMessageParts(ctx, targetParts, getEventTS(evt))
 	} else {
 		res = portal.redactMessageParts(ctx, targetParts, intent, getEventTS(evt), "", dontRenderPlaceholder)
 	}
